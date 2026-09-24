@@ -1,0 +1,16 @@
+# Ignorar directorio de trabajo local de Terraform
+.terraform/
+
+# Ignorar archivos de estado (contienen datos sensibles e infraestructura actual)
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Ignorar archivos de variables con credenciales/datos sensibles
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

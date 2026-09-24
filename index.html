@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Horizon Resort & Spa | Lujo y Confort</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <div class="logo">Grand Horizon</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#reserva" class="btn-primary">Reservar Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero-content container">
+                <h1>Descubre el Paraíso en Grand Horizon</h1>
+                <p>Donde el lujo se encuentra con la serenidad en una experiencia inolvidable.</p>
+                <a href="#habitaciones" class="btn-secondary">Ver Habitaciones</a>
+            </div>
+        </section>
+
+        <!-- Rooms Section -->
+        <section id="habitaciones" class="rooms container">
+            <h2 class="section-title">Nuestras Suites</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800') center/cover;"></div>
+                    <div class="room-info">
+                        <h3>Suite Ejecutiva</h3>
+                        <p>Elegancia y funcionalidad para el viajero moderno.</p>
+                        <span class="price">Desde $250/noche</span>
+                    </div>
+                </div>
+                <div class="room-card highlight">
+                    <div class="room-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800') center/cover;"></div>
+                    <div class="room-info">
+                        <h3>Suite Real</h3>
+                        <p>Nuestra joya de la corona con vista panorámica al mar.</p>
+                        <span class="price">Desde $550/noche</span>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=800') center/cover;"></div>
+                    <div class="room-info">
+                        <h3>Villa Familiar</h3>
+                        <p>Espacio y confort para toda la familia con piscina privada.</p>
+                        <span class="price">Desde $400/noche</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2 class="section-title">Servicios Exclusivos</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">🧘</div>
+                        <h3>Spa & Wellness</h3>
+                        <p>Tratamientos rejuvenecedores para cuerpo y mente.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🍽️</div>
+                        <h3>Alta Cocina</h3>
+                        <p>Sabores locales e internacionales por chefs de renombre.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🌊</div>
+                        <h3>Playa Privada</h3>
+                        <p>Acceso directo a las aguas más cristalinas del caribe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Section -->
+        <section id="reserva" class="booking container">
+            <div class="booking-card">
+                <h2 class="section-title">Haz tu Reserva</h2>
+                <form id="reservation-form">
+                    <div class="form-group">
+                        <label for="checkin">Llegada</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Salida</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Tipo de Habitación</label>
+                        <select id="room-type">
+                            <option value="ejecutiva">Suite Ejecutiva</option>
+                            <option value="real">Suite Real</option>
+                            <option value="familiar">Villa Familiar</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Consultar Disponibilidad</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>Grand Horizon</h3>
+                <p>El estándar de oro en hospitalidad.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Grand Horizon Resort & Spa.
+        </div>
+    </footer>
+
+    <!-- Modal de Éxito (Oculto por defecto) -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="success-icon">✔️</div>
+                <h2>¡Reserva Solicitada!</h2>
+                <p>Nuestro equipo de conserjería se pondrá en contacto contigo en breve para confirmar los detalles.</p>
+                <button class="btn-primary" id="close-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
