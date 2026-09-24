@@ -1,74 +1,35 @@
-# Evidencia de despliegue — Challenge AWS S3 + Terraform
+$ export AWS_ACCESS_KEY_ID="***** (revocado)"
+$ export AWS_SECRET_ACCESS_KEY="***** (revocado)"
+$ export AWS_SESSION_TOKEN="***** (revocado)"
 
-> Nota: las credenciales y tokens de sesión de AWS Academy se han omitido intencionadamente de este documento por seguridad. Nunca deben incluirse en la evidencia ni en el repositorio.
-
-## 1. Verificación de identidad AWS
-
-```
 $ aws sts get-caller-identity
-```
-```
-(pegar aquí solo el JSON de salida: Account, UserId, Arn — sin tokens)
-```
 
-## 2. Inicialización de Terraform
+$ git init
+$ git branch -M main
+$ git remote add origin https://github.com/ATSUSHINICA/challenge-de-aprendizaje-aws.git
 
-```
 $ terraform init
-```
-```
-(pegar aquí la salida de terraform init, ej. "Terraform has been successfully initialized!")
-```
 
-## 3. Validación de la configuración
+$ git add .
+$ git commit -am "Primer commit"
+$ git push origin main
 
-```
-$ terraform validate
-```
-```
-(pegar aquí la salida, ej. "Success! The configuration is valid.")
-```
+$ terraform apply
 
-## 4. Plan de despliegue
+$ aws s3 ls
 
-```
-$ terraform plan
-```
-```
-(pegar aquí un resumen del plan, ej. "Plan: X to add, 0 to change, 0 to destroy.")
-```
+$ aws s3 website s3://challenge-aws-aula/ --index-document index.html
 
-## 5. Aplicación de la infraestructura
+$ aws s3api put-public-access-block \
+  --bucket challenge-aws-aula \
+  --public-access-block-configuration "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false"
 
-```
-$ terraform apply -auto-approve
-```
-```
-(pegar aquí la salida final, ej. "Apply complete! Resources: X added, 0 changed, 0 destroyed.")
-```
+$ cat <<EOF > policy.json
+(contenido del policy.json)
+EOF
 
-## 6. Configuración del hosting estático (S3 website)
+$ aws s3api put-bucket-policy \
+  --bucket challenge-aws-aula \
+  --policy file://policy.json
 
-```
-$ aws s3api put-bucket-policy --bucket challenge-aws-aula --policy file://policy.json
-```
-```
-(pegar aquí la salida, o indicar "Sin salida (comando ejecutado correctamente)")
-```
-
-## 7. Subida de los archivos web al bucket
-
-```
 $ aws s3 sync . s3://challenge-aws-aula/
-```
-```
-(pegar aquí la lista de archivos subidos)
-```
-
-## 8. Verificación de la URL pública
-
-```
-URL de hosting estático: http://challenge-aws-aula.s3-website-<region>.amazonaws.com
-```
-
-(Añadir aquí captura o confirmación de que la web carga correctamente en el navegador)
